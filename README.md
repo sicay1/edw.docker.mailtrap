@@ -8,22 +8,20 @@
 
 ## Send email
 
+    $ telnet localhost 2525
+    ehlo example.com
+    mail from: me@example.com
+    rcpt to: you@example.com
+    data
+    Subject: Hello from me
+    Hello You,
 
+    This is a test.
 
-      $ telnet localhost 2525
-      ehlo example.com
-      mail from: me@example.com
-      rcpt to: you@example.com
-      data
-      Subject: Hello from me
-      Hello You,
-
-      This is a test.
-
-      Cheers,
-      Me
-      .
-      quit
+    Cheers,
+    Me
+    .
+     quit
 
 ## See email via Mailtrap Web UI:
 
