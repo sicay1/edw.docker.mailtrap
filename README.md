@@ -1,18 +1,16 @@
-# Mailtrap Docker Image
+# Catch all mail and display it in roundcube interface.
 
-Catch all mail and display it in roundcube interface.
 
-# Usage
 
 ## Start Mailtrap
 
-    $ docker run -d --name=mailtrap -p 80:80 eaudeweb/mailtrap
+    $ docker run -d --name=mailtrap -p 8055:80 -p 2525:25 eaudeweb/mailtrap
 
 ## Send email
 
     $ docker run -it --link mailtrap alpine sh
 
-      $ telnet mailtrap 25
+      $ telnet localhost 2525
       ehlo example.com
       mail from: me@example.com
       rcpt to: you@example.com
@@ -29,10 +27,7 @@ Catch all mail and display it in roundcube interface.
 
 ## See email via Mailtrap Web UI:
 
-* http://localhost
-
-## Default login:
-
+* http://localhost:8055
 * **Username:** `mailtrap`
 * **Password:** `mailtrap`
 
@@ -46,10 +41,3 @@ Set environment variables
 * `MT_MESSAGE_LIMIT` - message limit in bytes, default 10240000
 
 and recreate the container.
-
-## Testing the image locally
-
-```
-sudo docker build -t eaudeweb/mailtrap:test .
-sudo docker-compose up
-```
