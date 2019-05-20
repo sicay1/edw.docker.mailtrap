@@ -8,7 +8,7 @@
 
 ## Send email
 
-    $ docker run -it --link mailtrap alpine sh
+
 
       $ telnet localhost 2525
       ehlo example.com
